@@ -25,7 +25,18 @@ const AddReminder = (props) => {
 
   return (
     <>
-    			<h1>Personal Reminders</h1>
+    	<h1>Personal Reminders</h1>
+      <div>
+        {props.reminders.map(reminder =>
+          <div key={reminder._id}>
+            <li>priority: {reminder.priority} </li>
+            <li>description: {reminder.description}</li>
+            <li>time: {reminder.time} </li>
+            <li>done: {reminder.done} </li>
+          </div>
+          )}
+      </div>
+
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div className="form-group mb-1">
 					<label htmlFor="priority-input" className="form-label">

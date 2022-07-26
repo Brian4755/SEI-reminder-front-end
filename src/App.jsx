@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -14,6 +14,14 @@ const App = () => {
   const [reminders, setReminders] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const fetchAllReminders = async () => {
+      const reminderData = await reminderService.getAll()
+      setReminders(reminderData)
+    }
+    fetchAllReminders()
+  }, [])
 
   const handleLogout = () => {
     authService.logout()
@@ -43,7 +51,7 @@ const App = () => {
         />
         <Route
           path="/reminder"
-          element={<AddReminder handleAddReminder={handleAddReminder}/>}
+          element={<AddReminder handleAddReminder={handleAddReminder} reminders={reminders}/>}
         />
         <Route
           path="/login"
