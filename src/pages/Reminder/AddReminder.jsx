@@ -29,10 +29,15 @@ const AddReminder = (props) => {
       <div>
         {props.reminders.map(reminder =>
           <div key={reminder._id}>
-            <li>priority: {reminder.priority} </li>
-            <li>description: {reminder.description}</li>
-            <li>time: {reminder.time} </li>
-            <li>done: {reminder.done} </li>
+            <ul>
+            <li> priority: {reminder.priority} </li>
+            <li> description: {reminder.description}</li>
+            {reminder.time
+            ? <li> time: {reminder.time} </li>
+            : ''
+            }
+            <li> done: <input type="checkbox" defaultChecked={reminder.done}/> </li>
+            </ul>
           </div>
           )}
       </div>
