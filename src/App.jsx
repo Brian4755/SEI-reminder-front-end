@@ -10,6 +10,7 @@ import * as authService from './services/authService'
 import AddReminder from './pages/Reminder/AddReminder'
 
 const App = () => {
+  const [reminders, setReminders] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
@@ -21,6 +22,10 @@ const App = () => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
+  }
+
+  const handleAddReminder = newReminderData => {
+    setReminders([...reminders, newReminderData])
   }
 
   return (
@@ -36,7 +41,7 @@ const App = () => {
         />
         <Route
           path="/reminder"
-          element={<AddReminder />}
+          element={<AddReminder handleAddReminder={handleAddReminder}/>}
         />
         <Route
           path="/login"

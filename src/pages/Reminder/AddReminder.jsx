@@ -1,49 +1,91 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
 const AddReminder = (props) => {
+  const formElement = useRef()
+  const [validForm, setValidForm] = useState(false)
+  const [formData, setFormData] = useState({
+    priority: '',
+    description: '',
+    time: '',
+    done: false
+  })
+
+  const handleChange = evt => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.type === 'checkbox' ? evt.target.checked : evt.target.value })
+  }
+
+  useEffect(() => {
+    formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
+  }, [formData])
+
+  const handleSubmit = evt => {
+    evt.preventDefault()
+    props.handleAddReminder(formData)
+  }
+
   return (
     <>
     			<h1>Personal Reminders</h1>
-			<form autoComplete="off">
-				<div className="form-group mb-3">
-					<label htmlFor="name-input" className="form-label">
+			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
+				<div className="form-group mb-1">
+					<label htmlFor="priority-input" className="form-label">
 						Priority
 					</label>
 					<input 
-						type="text"
+						type="number"
 						className="form-control"
-						id="name-input"
-						name="name"
+						id="priority-input"
+						name="priority"
+            value={formData.priority}
+            onChange={handleChange}
 						required
 					/>
 				</div>
-				<div className="form-group mb-3">
-					<label htmlFor="breed-input" className="form-label">
+				<div className="form-group mb-2">
+					<label htmlFor="description-input" className="form-label">
 						Description
 					</label>
 					<input 
 						type="text"
 						className="form-control"
-						id="breed-input"
-						name="breed"
+						id="description-input"
+						name="description"
+            value={formData.description}
+            onChange={handleChange}
 						required
 					/>
 				</div>
-				<div className="form-group mb-4">
-					<label htmlFor="age-input" className="form-label">
+				<div className="form-group mb-3">
+					<label htmlFor="time-input" className="form-label">
 						Time
 					</label>
 					<input 
-						type="number"
+						type="time"
 						className="form-control"
-						id="age-input"
-						name="age"
+						id="time-input"
+						name="time"
+            value={formData.time}
+            onChange={handleChange}
+					/>
+				</div>
+				<div className="form-group mb-4">
+					<label htmlFor="done-input" className="form-label">
+						Done
+					</label>
+					<input 
+						type="checkbox"
+						className="form-control"
+						id="done-input"
+						name="done"
+            checked={formData.done}
+            onChange={handleChange}
 					/>
 				</div>
 				<div className="d-grid">
 					<button
 						type="submit"
 						className="btn btn-primary btn-fluid"
+            disabled={!validForm}
 					>
 						Add Reminder
 					</button>
