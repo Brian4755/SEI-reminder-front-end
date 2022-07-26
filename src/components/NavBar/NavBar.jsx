@@ -9,14 +9,18 @@ import './NavBar.css'
 const NavBar = ({ user, handleLogout }) => {
   return (
     <>
+    <header className='App-header'>
       {user ?
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
             <Toolbar>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                SEI 5/23
+                <Link to="">
+                  SEI 5/23
+                </Link>
               </Typography>
-              <Button  color="inherit"><Link to="/reminders">Personal Reminders</Link></Button>
+              <Button  color="inherit"><Link to="/reminder">Personal Reminders</Link></Button>
+              <Button><Link to="/changePassword">Change Password</Link></Button>
               <Button  color="inherit"><Link to="" onClick={handleLogout}>Log out</Link></Button>
             </Toolbar>
           </AppBar>
@@ -34,6 +38,7 @@ const NavBar = ({ user, handleLogout }) => {
           </AppBar>
         </Box>
       } 
+    </header>
       </>
   );
 }
