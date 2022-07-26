@@ -51,7 +51,7 @@ const App = () => {
         />
         <Route
           path="/reminder"
-          element={<AddReminder handleAddReminder={handleAddReminder} reminders={reminders}/>}
+          element={<AddReminder handleAddReminder={handleAddReminder} reminders={reminders} user={user} />}
         />
         <Route
           path="/login"

@@ -27,9 +27,11 @@ const AddReminder = (props) => {
     <>
     	<h1>Personal Reminders</h1>
       <div>
-        {props.reminders.map(reminder =>
+        {props.reminders.filter(reminder => props.user.email === reminder.owner.email).map(reminder =>
+          
           <div key={reminder._id}>
             <ul>
+              {reminder.owner?.name}
             <li> priority: {reminder.priority} </li>
             <li> description: {reminder.description}</li>
             {reminder.time
