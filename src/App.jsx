@@ -8,6 +8,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import AddReminder from './pages/Reminder/AddReminder'
+import * as reminderService from './services/reminderService'
 
 const App = () => {
   const [reminders, setReminders] = useState([])
@@ -24,8 +25,9 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  const handleAddReminder = newReminderData => {
-    setReminders([...reminders, newReminderData])
+  const handleAddReminder = async newReminderData => {
+    const newReminder = await reminderService.create(newReminderData)
+    setReminders([...reminders, newReminder])
   }
 
   return (
