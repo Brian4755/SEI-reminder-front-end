@@ -33,6 +33,11 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  const handleDeleteReminder = async id => {
+    const deletedReminder = await reminderService.deleteOne(id)
+    setReminders(reminders.filter(reminder => reminder._id !== deletedReminder._id))
+  }
+
   const handleAddReminder = async newReminderData => {
     const newReminder = await reminderService.create(newReminderData)
     setReminders([...reminders, newReminder])
@@ -51,7 +56,7 @@ const App = () => {
         />
         <Route
           path="/reminder"
-          element={<AddReminder handleAddReminder={handleAddReminder} reminders={reminders} user={user} />}
+          element={<AddReminder handleAddReminder={handleAddReminder} reminders={reminders} user={user} handleDeleteReminder={handleDeleteReminder}/>}
         />
         <Route
           path="/login"

@@ -28,10 +28,8 @@ const AddReminder = (props) => {
     	<h1>Personal Reminders</h1>
       <div>
         {props.reminders.filter(reminder => props.user.email === reminder.owner.email).map(reminder =>
-          
           <div key={reminder._id}>
             <ul>
-              {reminder.owner?.name}
             <li> priority: {reminder.priority} </li>
             <li> description: {reminder.description}</li>
             {reminder.time
@@ -39,6 +37,7 @@ const AddReminder = (props) => {
             : ''
             }
             <li> done: <input type="checkbox" defaultChecked={reminder.done}/> </li>
+            <button onClick={() => props.handleDeleteReminder(reminder._id)}>x</button>
             </ul>
           </div>
           )}
