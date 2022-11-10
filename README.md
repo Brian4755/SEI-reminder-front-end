@@ -1,7 +1,7 @@
 <h1>SEI Reminders</h1>
 <br>
 
-<img src='https://scontent.xx.fbcdn.net/v/t1.15752-9/285692100_418757210048662_8703843135326334970_n.png?stp=dst-png_p403x403&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=Grp2x9NMYu4AX94iUVa&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVI7AjDRWYKa6o8Gh0vrCqbrcx9GRpQXEWqoBEb6BxHOlA&oe=630534A8' alt='Home page for SEI Reminders'>
+<img src='https://scontent.xx.fbcdn.net/v/t1.15752-9/311229664_816355866243449_1837930710327830495_n.png?stp=dst-png_p403x403&_nc_cat=105&ccb=1-7&_nc_sid=aee45a&_nc_ohc=wqC16NGQvekAX8b1Lco&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdRL96toVm_1XF1fmXLttVPB4jcSQMuGZwaQ2L1BuFGrAg&oe=6394E18B' alt='Home page for SEI Reminders'>
 
 <p>SEI Reminders is a site where a user can create a profile and set a list of reminders. These reminders can be added/deleted and are only acessable from that user.</p>
 

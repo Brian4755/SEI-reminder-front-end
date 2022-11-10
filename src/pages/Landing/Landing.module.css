@@ -4,11 +4,6 @@
   flex-direction: column;
 }
 
-body {
-  background-image: url(https://scontent.xx.fbcdn.net/v/t1.15752-9/295786013_1763841907291633_8737704984149839465_n.png?stp=dst-png_s600x600&_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=jq38YxNLjJ0AX-Khu1n&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLJOTZZhbGaYNvXQxp8FTURF3a17Xkm5BFMQ80tMJLzxg&oe=630512A7);
-  background-size: cover;
-}
-
 h1, li, button, form {
   margin-left: 5%;
 }
